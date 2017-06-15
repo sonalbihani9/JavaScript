@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <script>
+        function validatePaswd()
+        {
+            var y=document.forms["myForm"]["paswd"].value;
+            var x=document.forms["myForm"]["RegNo"].value;
+            document.getElementById("demo").innerHTML=x;
+            document.getElementById("demo").innerHTML=y;
+            var arr1=["16BIT0256","15BCE0001","11BME0989"];
+            var arr2=["abcd","cdef","1234"];
+            for(i=0;i<3;i++)
+            {
+                if(x==arr1[i])
+                {
+                    if(arr2[i]==y)
+                    {
+                        document.getElementById("demo").innerHTML="The password is correct.";
+                        return true;
+                    }
+                    else
+                    {
+                        document.getElementById("demo").innerHTML="The password is incorrect.";
+                        return false;
+                    }
+                }
+                else{
+                    document.getElementById("demo").innerHTML="The user does not exist";
+                    return false;
+                }
+
+
+            }
+        }
+    </script>
+    <form name="myForm" onsubmit="return validatePaswd()" method="post">
+        <strong>Registration Number: </strong><br>
+        <input type="text" name="RegNo" pattern="1[2-7][B|M|b|m][A-Za-z]{2}[0-9]{4}" maxlength="9" required>
+        <br><br>
+        <strong>Name: </strong><br>
+        <input type="text" name="fname" required>
+        <br><br>
+        <strong>Password: </strong><br>
+        <input type="password" name="paswd"required>
+        <input type="submit" value="Submit">
+
+    </form>
+</head>
+<body>
+
+</body>
+</html>
